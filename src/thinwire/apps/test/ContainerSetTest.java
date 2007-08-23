@@ -16,8 +16,8 @@ package thinwire.apps.test;
 
 import java.util.*;
 
-public class ContainerSetTest implements UITest {
-    public void run() throws Exception {
+public class ContainerSetTest {
+	public static void main(String[] args) {
         List l = new ArrayList();
         Object o = new Object();
         l.add(o);

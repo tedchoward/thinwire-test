@@ -19,8 +19,8 @@ import thinwire.ui.event.*;
 import thinwire.ui.layout.*;
 import thinwire.ui.style.*;
 
-public class TabFolderTest implements UITest {
-    public void run() {
+public class TabFolderTest {
+	public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         f.setLayout(new TableLayout(new double[][]{{100, 100, 100, 100}, {300, 25}}, 10, 5));
         final TabFolder tf = new TabFolder();

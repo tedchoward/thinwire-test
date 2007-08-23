@@ -18,9 +18,9 @@ import thinwire.ui.*;
 import thinwire.ui.layout.*;
 import thinwire.ui.style.Color;
 
-public class TextFieldTest implements UITest {
+public class TextFieldTest {
 
-    public void run() throws Exception {
+	public static void main(String[] args) {
         Dialog dlg = new Dialog("TextField Test");
         dlg.setBounds(10, 10, 600, 400);
         dlg.setLayout(new TableLayout(new double[][] {{1, 0, 1}, {0, 20, 0}}, 0, 5));

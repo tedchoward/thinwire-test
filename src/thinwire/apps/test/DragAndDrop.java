@@ -23,12 +23,12 @@ import thinwire.render.web.WebApplication;
 import thinwire.ui.*;
 import thinwire.ui.style.*;
 
-public class DragAndDrop implements UITest {
+public class DragAndDrop {
 
     private static final Logger log = Logger.getLogger(DragAndDrop.class.getName());
     private static final String IMG_PATH = "class:///thinwire.tests.Main/resources/";
     
-    public void run() {
+    public static void main(String[] args) {
         final WebApplication app = (WebApplication) Application.current();
         Frame f = app.getFrame();
         f.setTitle("ThinWire Test");

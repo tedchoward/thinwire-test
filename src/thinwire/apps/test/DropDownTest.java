@@ -16,8 +16,12 @@ package thinwire.apps.test;
 
 import thinwire.ui.*;
 
-public class DropDownTest implements UITest {
-    public void run() {
+public class DropDownTest {
+	public static void main(String[] args) {
+		new DropDownTest();
+	}
+	
+	public void DropDownTest() {
         Frame f = Application.current().getFrame();
         f.setScrollType(Frame.ScrollType.AS_NEEDED);
         

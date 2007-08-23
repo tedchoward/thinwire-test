@@ -16,8 +16,8 @@ package thinwire.apps.test;
 
 import thinwire.ui.*;
 
-public class TabFolderTabTransition implements UITest {
-    public void run() {
+public class TabFolderTabTransition {
+	public static void main(String[] args) {
         TabFolder tf = new TabFolder();
         tf.setBounds(10, 10, 400, 300);
         

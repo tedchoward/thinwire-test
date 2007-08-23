@@ -18,8 +18,12 @@ import thinwire.render.web.*;
 import thinwire.ui.*;
 import thinwire.ui.layout.*;
 
-public class DropDownLoadTest implements UITest {
-    public void run() {
+public class DropDownLoadTest {
+	public static void main(String[] args) {
+		new DropDownLoadTest();
+	}
+	
+	public DropDownLoadTest() {
         WebApplication app = (WebApplication)Application.current();
         Frame f = app.getFrame();
         TableLayout tl = new TableLayout();

@@ -18,9 +18,9 @@ import thinwire.ui.*;
 import thinwire.ui.event.*;
 import thinwire.ui.layout.*;
 
-public class FileChooserTest implements UITest {
+public class FileChooserTest {
 
-	public void run() throws Exception {
+	public static void main(String[] args) {
 		Dialog dlg = new Dialog("FileChooserTest");
 		dlg.setBounds(10, 10, 300, 200);
 		dlg.setLayout(new TableLayout(new double[][] {{0, 75}, {20, 0, 30}}, 5, 5));

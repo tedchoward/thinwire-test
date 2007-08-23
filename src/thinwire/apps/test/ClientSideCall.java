@@ -21,8 +21,8 @@ import thinwire.ui.*;
 import thinwire.ui.event.*;
 import thinwire.ui.layout.TableLayout;
 
-public class ClientSideCall implements UITest {
-    public void run() {
+public class ClientSideCall {
+	public static void main(String[] args) {
         final WebApplication app = (WebApplication)Application.current();
         Frame f = app.getFrame();
         f.setLayout(new TableLayout(new double[][]{{100, 100, 100, 0},{200, 30, 0}}, 5, 5));

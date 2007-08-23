@@ -17,9 +17,12 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 import thinwire.ui.layout.*;
 
-public class ModalDialogTest implements UITest {
-
-	public void run() throws Exception {
+public class ModalDialogTest {
+	public static void main(String[] args) {
+		new ModalDialogTest();
+	}
+	
+	public ModalDialogTest() {
 		final Dialog dlg1 = createModalDialog("Dialog 1", 10, 10, 300, 200);
 		final Dialog dlg2 = createModalDialog("Dialog 2", 100, 100, 300, 200);
 		dlg2.setLayout(new TableLayout(new double[][] {{0}, {0}}));

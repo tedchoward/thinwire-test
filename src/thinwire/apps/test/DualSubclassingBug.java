@@ -16,8 +16,8 @@ package thinwire.apps.test;
 
 import thinwire.ui.*;
 
-public class DualSubclassingBug implements UITest {
-    public void run() {
+public class DualSubclassingBug {
+	public static void main(String[] args) {
         //new DialogSubB().setVisible(true);
         new DoubleInheritanceBugDemo();
     }

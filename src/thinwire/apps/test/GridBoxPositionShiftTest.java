@@ -18,8 +18,8 @@ import thinwire.ui.*;
 import thinwire.ui.layout.*;
 import thinwire.ui.style.Color;
 
-public class GridBoxPositionShiftTest implements UITest {
-    public void run() {
+public class GridBoxPositionShiftTest {
+	public static void main(String[] args) {
         final Frame frame = Application.current().getFrame();
         frame.setTitle("Grid Test");
 

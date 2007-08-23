@@ -27,7 +27,6 @@ public class Main {
         }
         
         GridBox.Column col = new GridBox.Column();
-        //col.add(AdminTest.class);
         col.add(BackgroundImage.class);
         col.add(BorderImage.class);
         col.add(DragAndDrop.class);
@@ -38,7 +37,6 @@ public class Main {
         col.add(FileChooserTest.class);
         col.add(TextFieldTest.class);
         col.add(LabelTest.class);
-        //col.add(GridSortTest.class);
         col.add(DropDownTest.class);
         col.add(TabFolderTest.class);
         col.add(DualListenerBug.class);
@@ -49,6 +47,7 @@ public class Main {
         col.add(GridBoxPositionShiftTest.class);
         col.add(DropDownEmptyCPUTest.class);
         col.add(DropDownLoadTest.class);
+        col.add(DropDownAutoComplete.class);
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
         ddgb.setEditAllowed(false);
@@ -58,54 +57,17 @@ public class Main {
         if (MessageBox.confirm(null, Application.getPlatformVersionInfo().get("productVersion") + ": Select A Test To Run", ddgb, null) == 0) {
             if (ddgb.getText().length() > 0) {
                 row = ddgb.getComponent().getSelectedRow();
-                if (row != null) ((UITest)(((Class)row.get(0)).newInstance())).run();
-            }
-        }
-        
-        System.out.println("CONTINUING EXECUTION!!!");
-        
-        if (row == null) {
-            //MessageBox.confirm("You did not select a test!");
-            Application.current().getFrame().setVisible(false);
-        }
-        
-        //new MemoryTest().run();
-        
-        //new GridBoxRowSelection().run();
-        
-        
-        /*final DropDownGridBox ddgb = new DropDownGridBox();
-        Application.current().getFrame().getChildren().add(ddgb.setBounds(10, 10, 200, 25));
 
-        final String[] values = new String[]{"Josh", "Jordan", "Jack", "Ted", "Tom", "Terry", "David", "Delwin", "Derik"};
-        Arrays.sort(values);
-        
-        ddgb.addPropertyChangeListener(DropDownGridBox.PROPERTY_TEXT, new PropertyChangeListener() {
-            public void propertyChange(PropertyChangeEvent ev) {
-                if (ddgb.getComponent().getColumns().size() > 0) {
-                    ddgb.getComponent().getColumns().clear();
-                } else {
-                    GridBox.Column col = new GridBox.Column();
-                    
-                    if (ev.getNewValue().toString().length() == 0) {
-                        ddgb.getComponent().setVisible(false);
-                        
-                        for (String s : values) {
-                            col.add(s);
-                        }
-                    } else {
-                        String value = ((String)ev.getNewValue()).toLowerCase();
-                        ddgb.getComponent().setVisible(true);
-                        
-                        for (String s : values) {
-                            if (s.toLowerCase().startsWith(value)) col.add(s);
-                        }
-                    }
-                    
-                    ddgb.getComponent().getColumns().add(col);
+                if (row != null) {
+	                Class clazz = (Class)row.get(0);
+	                clazz.getMethod("main", new Class[] { String[].class }).invoke(clazz, new Object[] { new String[] {} });
                 }
             }
-        });*/
+        }
         
+        if (row == null) {
+            MessageBox.confirm("You did not select a test!");
+            Application.current().getFrame().setVisible(false);
+        }        
     }
 }

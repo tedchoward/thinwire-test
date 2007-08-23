@@ -23,9 +23,10 @@ import thinwire.ui.style.Color;
 import java.util.*;
 import java.util.logging.Logger;
 
-public class TableLayoutTest implements UITest {
+public class TableLayoutTest {
     private static final Logger log = Logger.getLogger(TableLayoutTest.class.getName());
-    public void run() {
+    
+    public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         f.setTitle(TableLayoutTest.class.getName());
         

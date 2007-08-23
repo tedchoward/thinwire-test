@@ -17,8 +17,8 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 import thinwire.ui.event.*;
 
-public class Localization implements UITest {
-    public void run() {
+public class Localization {
+	public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         final TextArea ta = new TextArea();
         ta.setText("\u00E4 \u00E5");

@@ -17,13 +17,9 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 import thinwire.ui.style.*;
 
-public class LabelTest implements UITest{
-
-    /**
-     * @param args
-     */
-    public void run() {
-        Dialog dlg = new Dialog("Label Test");
+public class LabelTest {
+	public static void main(String[] args) {
+		Dialog dlg = new Dialog("Label Test");
         dlg.setBounds(10, 10, 600, 400);
         Label lbl = new Label("<font bold='true'>Introduction</font><br/><font italic='true'>    A. Point   1</font><br />  <font italic='true'>B. Point 1</font>");
         lbl.setWrapText(true);

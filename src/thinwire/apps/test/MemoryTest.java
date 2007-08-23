@@ -19,8 +19,12 @@ import thinwire.ui.event.ActionEvent;
 import thinwire.ui.event.ActionListener;
 import thinwire.ui.layout.TableLayout;
 
-public class MemoryTest implements UITest {
-    public void run() {
+public class MemoryTest {
+	public static void main(String[] args) {
+    	new MemoryTest();
+    }
+	
+    public MemoryTest() {
         final Frame f = Application.current().getFrame();
         
         /*final Dialog d = new Dialog("Hello World");

@@ -17,8 +17,8 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 import thinwire.ui.event.*;
 
-public class DualListenerBug implements UITest {
-    public void run() {
+public class DualListenerBug {
+	public static void main(String[] args) {
         CheckBox b = new CheckBox("Click Me!");
         b.setBounds(20, 20, 150, 30);
 

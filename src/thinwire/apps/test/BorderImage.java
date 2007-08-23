@@ -19,8 +19,8 @@ import thinwire.ui.event.ActionEvent;
 import thinwire.ui.event.ActionListener;
 import thinwire.ui.style.*;
 
-public class BorderImage implements UITest {
-    public void run() {
+public class BorderImage {
+	public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         f.getStyle().getBackground().setColor(Color.APPWORKSPACE);
         final Panel p = new Panel();

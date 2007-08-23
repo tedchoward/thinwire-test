@@ -17,8 +17,8 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 import thinwire.ui.style.*;
 
-public class BackgroundImage implements UITest {
-    public void run() {
+public class BackgroundImage {
+	public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         TextField tf = new TextField();
         tf.setBounds(5, 5, 200, 25);

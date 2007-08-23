@@ -18,8 +18,8 @@ import thinwire.ui.Application;
 import thinwire.ui.DropDownGridBox;
 import thinwire.ui.Frame;
 
-public class DropDownEmptyCPUTest implements UITest {
-    public void run() throws Exception {
+public class DropDownEmptyCPUTest {
+	public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         DropDownGridBox ddgb = new DropDownGridBox();
         ddgb.setBounds(10, 20, 200, 25);
