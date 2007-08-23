@@ -95,7 +95,6 @@ public class DropDownImageChooserTest extends DropDown<ImageChooser> {
 
 class ImageChooser extends Panel {
     public static final String PROPERTY_IMAGE_SELECTED = "imageSelected";
-    private static final String IMG_PATH = "class:///thinwire.tests.ImageChooser/resources/";
     
     private ActionListener imageClickListener = new ActionListener() {
         public void actionPerformed(ActionEvent ev) {
@@ -120,7 +119,7 @@ class ImageChooser extends Panel {
     }
     
     void addImage(String fileName) {
-        Image img = new Image(IMG_PATH + fileName);
+        Image img = new Image(Main.RES_PATH + fileName);
         img.setFocusCapable(true);
         img.setPosition(5, getHeight() + 5);
         if (getInnerWidth() < img.getWidth()) setWidth(img.getWidth() + 10);

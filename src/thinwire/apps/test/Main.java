@@ -14,14 +14,18 @@
 */
 package thinwire.apps.test;
 
-import java.util.Arrays;
-
 import thinwire.ui.*;
-import thinwire.ui.event.*;
-import thinwire.ui.layout.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+	static final String RES_PATH = "class:///" + Main.class.getName() + "/resources/";
+    
+    static String getSimpleClassName(Class type) {
+        String text = type.getName();
+        text = text.substring(text.lastIndexOf('.') + 1);
+        return text;
+    }	
+	
+	public static void main(String[] args) throws Exception {
         for (String arg : args) {
             System.out.println(arg);
         }
@@ -48,6 +52,7 @@ public class Main {
         col.add(DropDownEmptyCPUTest.class);
         col.add(DropDownLoadTest.class);
         col.add(DropDownAutoCompleteTest.class);
+        col.add(ApocalypseTest.class);
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
         ddgb.setEditAllowed(false);
