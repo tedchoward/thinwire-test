@@ -12,22 +12,17 @@
 	with this library; if not, write to the Free Software Foundation, Inc., 59
 	Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
-package thinwire.tests;
+package thinwire.apps.test;
 
-import thinwire.ui.*;
-import thinwire.ui.style.*;
+import thinwire.ui.Application;
+import thinwire.ui.DropDownGridBox;
+import thinwire.ui.Frame;
 
-public class BackgroundImage implements UITest {
-    public void run() {
+public class DropDownEmptyCPUTest implements UITest {
+    public void run() throws Exception {
         Frame f = Application.current().getFrame();
-        TextField tf = new TextField();
-        tf.setBounds(5, 5, 200, 25);
-        tf.getStyle().getBackground().setImage("class:///thinwire.tests.BackgroundImage/resources/BackgroundImage.png");
-        tf.getStyle().getBackground().setRepeat(Background.Repeat.Y);
-        tf.getStyle().getBackground().setPosition(Background.Position.LEFT_TOP);
-        tf.getStyle().getBorder().setSize(1);
-        tf.getStyle().getBorder().setType(Border.Type.SOLID);
-        tf.getStyle().getBorder().setColor(Color.valueOf("rgb(45, 66, 98)"));
-        f.getChildren().add(tf);
+        DropDownGridBox ddgb = new DropDownGridBox();
+        ddgb.setBounds(10, 20, 200, 25);
+        f.getChildren().add(ddgb);
     }
 }

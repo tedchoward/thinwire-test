@@ -12,24 +12,25 @@
 	with this library; if not, write to the Free Software Foundation, Inc., 59
 	Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
-package thinwire.tests;
+package thinwire.apps.test;
 
 import thinwire.ui.*;
+import thinwire.ui.layout.*;
+import thinwire.ui.style.Color;
 
-public class TabFolderTabTransition implements UITest {
-    public void run() {
-        TabFolder tf = new TabFolder();
-        tf.setBounds(10, 10, 400, 300);
-        
-        TabSheet ts1 = new TabSheet("Tab 1");
-        TabSheet ts2 = new TabSheet("Tab 2");
-        
-        tf.getChildren().add(ts1);
-        tf.getChildren().add(ts2);
-        
-        ts1.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
-        ts2.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
-        
-        Application.current().getFrame().getChildren().add(tf);
+public class TextFieldTest implements UITest {
+
+    public void run() throws Exception {
+        Dialog dlg = new Dialog("TextField Test");
+        dlg.setBounds(10, 10, 600, 400);
+        dlg.setLayout(new TableLayout(new double[][] {{1, 0, 1}, {0, 20, 0}}, 0, 5));
+        TextField tf = new TextField();
+        tf.setLimit("1, 1");
+        tf.setAlignX(TextField.AlignX.RIGHT);
+        //tf.getStyle().getBorder().setSize(1);
+        dlg.getStyle().getBackground().setColor(Color.BLACK);
+        dlg.getChildren().add(tf);
+        dlg.setVisible(true);
     }
+
 }

@@ -12,25 +12,30 @@
 	with this library; if not, write to the Free Software Foundation, Inc., 59
 	Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
-package thinwire.tests;
+package thinwire.apps.test;
 
 import thinwire.ui.*;
+import thinwire.ui.event.*;
 import thinwire.ui.layout.*;
-import thinwire.ui.style.Color;
 
-public class TextFieldTest implements UITest {
+public class FileChooserTest implements UITest {
 
-    public void run() throws Exception {
-        Dialog dlg = new Dialog("TextField Test");
-        dlg.setBounds(10, 10, 600, 400);
-        dlg.setLayout(new TableLayout(new double[][] {{1, 0, 1}, {0, 20, 0}}, 0, 5));
-        TextField tf = new TextField();
-        tf.setLimit("1, 1");
-        tf.setAlignX(TextField.AlignX.RIGHT);
-        //tf.getStyle().getBorder().setSize(1);
-        dlg.getStyle().getBackground().setColor(Color.BLACK);
-        dlg.getChildren().add(tf);
-        dlg.setVisible(true);
-    }
+	public void run() throws Exception {
+		Dialog dlg = new Dialog("FileChooserTest");
+		dlg.setBounds(10, 10, 300, 200);
+		dlg.setLayout(new TableLayout(new double[][] {{0, 75}, {20, 0, 30}}, 5, 5));
+		final FileChooser fc = new FileChooser();
+		dlg.getChildren().add(fc.setLimit("0, 0, 2, 1"));
+		Button ok = new Button("Ok");
+		dlg.getChildren().add(ok.setLimit("1, 2"));
+		ok.addActionListener(Button.ACTION_CLICK, new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				FileChooser.FileInfo fi = fc.getFileInfo();
+				MessageBox.confirm(fi.getName());
+			}
+		});
+		
+		dlg.setVisible(true);
+	}
 
 }

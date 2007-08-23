@@ -12,8 +12,19 @@
 	with this library; if not, write to the Free Software Foundation, Inc., 59
 	Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
-package thinwire.tests;
+package thinwire.apps.test;
 
-public interface UITest {
-    public void run() throws Exception;
+import java.util.*;
+
+public class ContainerSetTest implements UITest {
+    public void run() throws Exception {
+        List l = new ArrayList();
+        Object o = new Object();
+        l.add(o);
+        Object o2 = l.set(0, o);
+        
+        if (o == o2) {
+            System.out.println("They are the same!");
+        }
+    }
 }

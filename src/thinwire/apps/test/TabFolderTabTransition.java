@@ -12,19 +12,24 @@
 	with this library; if not, write to the Free Software Foundation, Inc., 59
 	Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
-package thinwire.tests;
+package thinwire.apps.test;
 
-import java.util.*;
+import thinwire.ui.*;
 
-public class ContainerSetTest implements UITest {
-    public void run() throws Exception {
-        List l = new ArrayList();
-        Object o = new Object();
-        l.add(o);
-        Object o2 = l.set(0, o);
+public class TabFolderTabTransition implements UITest {
+    public void run() {
+        TabFolder tf = new TabFolder();
+        tf.setBounds(10, 10, 400, 300);
         
-        if (o == o2) {
-            System.out.println("They are the same!");
-        }
+        TabSheet ts1 = new TabSheet("Tab 1");
+        TabSheet ts2 = new TabSheet("Tab 2");
+        
+        tf.getChildren().add(ts1);
+        tf.getChildren().add(ts2);
+        
+        ts1.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
+        ts2.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
+        
+        Application.current().getFrame().getChildren().add(tf);
     }
 }
