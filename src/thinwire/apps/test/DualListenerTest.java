@@ -15,21 +15,32 @@
 package thinwire.apps.test;
 
 import thinwire.ui.*;
+import thinwire.ui.event.*;
 
-public class TabFolderTabTransition {
+public class DualListenerTest {
 	public static void main(String[] args) {
-        TabFolder tf = new TabFolder();
-        tf.setBounds(10, 10, 400, 300);
-        
-        TabSheet ts1 = new TabSheet("Tab 1");
-        TabSheet ts2 = new TabSheet("Tab 2");
-        
-        tf.getChildren().add(ts1);
-        tf.getChildren().add(ts2);
-        
-        ts1.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
-        ts2.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
-        
-        Application.current().getFrame().getChildren().add(tf);
+        CheckBox b = new CheckBox("Click Me!");
+        b.setBounds(20, 20, 150, 30);
+
+        //b.addActionListener(Button.ACTION_CLICK,new Listener());    // Offending line.
+        b.addPropertyChangeListener(CheckBox.PROPERTY_CHECKED,new Listener());    // Offending line.
+
+        Dialog d = new Dialog("Button Test");
+        d.setBounds(20, 20, 200, 100);
+        d.getChildren().add(b);
+        d.setVisible(true);
     }
+}
+
+class Listener implements ActionListener, PropertyChangeListener
+{
+  public void actionPerformed(ActionEvent ev)
+  {
+    System.out.println("ACTION");
+  }
+    
+  public void propertyChange(PropertyChangeEvent ev)  
+  {
+    System.out.println("PROPERTY");
+  }
 }

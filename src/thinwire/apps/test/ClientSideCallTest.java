@@ -21,7 +21,7 @@ import thinwire.ui.*;
 import thinwire.ui.event.*;
 import thinwire.ui.layout.TableLayout;
 
-public class ClientSideCall {
+public class ClientSideCallTest {
 	public static void main(String[] args) {
         final WebApplication app = (WebApplication)Application.current();
         Frame f = app.getFrame();

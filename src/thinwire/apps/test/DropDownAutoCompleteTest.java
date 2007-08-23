@@ -4,7 +4,7 @@ import thinwire.ui.*;
 import thinwire.ui.event.*;
 import java.util.Arrays;
 
-public class DropDownAutoComplete {
+public class DropDownAutoCompleteTest {
 	public static void main(String[] args) {
         final DropDownGridBox ddgb = new DropDownGridBox();
         Application.current().getFrame().getChildren().add(ddgb.setBounds(10, 10, 200, 25));

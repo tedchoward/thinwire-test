@@ -17,7 +17,7 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 import thinwire.ui.event.*;
 
-public class Localization {
+public class LocalizationTest {
 	public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         final TextArea ta = new TextArea();

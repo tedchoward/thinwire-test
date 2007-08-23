@@ -15,19 +15,21 @@
 package thinwire.apps.test;
 
 import thinwire.ui.*;
-import thinwire.ui.style.*;
 
-public class BackgroundImage {
+public class TabFolderTabTransitionTest {
 	public static void main(String[] args) {
-        Frame f = Application.current().getFrame();
-        TextField tf = new TextField();
-        tf.setBounds(5, 5, 200, 25);
-        tf.getStyle().getBackground().setImage("class:///thinwire.tests.BackgroundImage/resources/BackgroundImage.png");
-        tf.getStyle().getBackground().setRepeat(Background.Repeat.Y);
-        tf.getStyle().getBackground().setPosition(Background.Position.LEFT_TOP);
-        tf.getStyle().getBorder().setSize(1);
-        tf.getStyle().getBorder().setType(Border.Type.SOLID);
-        tf.getStyle().getBorder().setColor(Color.valueOf("rgb(45, 66, 98)"));
-        f.getChildren().add(tf);
+        TabFolder tf = new TabFolder();
+        tf.setBounds(10, 10, 400, 300);
+        
+        TabSheet ts1 = new TabSheet("Tab 1");
+        TabSheet ts2 = new TabSheet("Tab 2");
+        
+        tf.getChildren().add(ts1);
+        tf.getChildren().add(ts2);
+        
+        ts1.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
+        ts2.getChildren().add(new TextField().setBounds(10, 10, 100, 20));
+        
+        Application.current().getFrame().getChildren().add(tf);
     }
 }

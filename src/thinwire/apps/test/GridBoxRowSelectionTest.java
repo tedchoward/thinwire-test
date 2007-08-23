@@ -20,7 +20,7 @@ import thinwire.ui.*;
 import thinwire.ui.layout.*;
 import thinwire.ui.event.*;
 
-public class GridBoxRowSelection {
+public class GridBoxRowSelectionTest {
 	public static void main(String[] args) {
 		Application app = Application.current();
         Frame f = app.getFrame();

@@ -19,7 +19,7 @@ import thinwire.ui.event.ActionEvent;
 import thinwire.ui.event.ActionListener;
 import thinwire.ui.style.*;
 
-public class BorderImage {
+public class BorderImageTest {
 	public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         f.getStyle().getBackground().setColor(Color.APPWORKSPACE);

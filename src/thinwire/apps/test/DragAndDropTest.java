@@ -23,9 +23,9 @@ import thinwire.render.web.WebApplication;
 import thinwire.ui.*;
 import thinwire.ui.style.*;
 
-public class DragAndDrop {
+public class DragAndDropTest {
 
-    private static final Logger log = Logger.getLogger(DragAndDrop.class.getName());
+    private static final Logger log = Logger.getLogger(DragAndDropTest.class.getName());
     private static final String IMG_PATH = "class:///thinwire.tests.Main/resources/";
     
     public static void main(String[] args) {

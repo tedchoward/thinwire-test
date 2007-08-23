@@ -15,32 +15,19 @@
 package thinwire.apps.test;
 
 import thinwire.ui.*;
-import thinwire.ui.event.*;
+import thinwire.ui.style.*;
 
-public class DualListenerBug {
+public class BackgroundImageTest {
 	public static void main(String[] args) {
-        CheckBox b = new CheckBox("Click Me!");
-        b.setBounds(20, 20, 150, 30);
-
-        //b.addActionListener(Button.ACTION_CLICK,new Listener());    // Offending line.
-        b.addPropertyChangeListener(CheckBox.PROPERTY_CHECKED,new Listener());    // Offending line.
-
-        Dialog d = new Dialog("Button Test");
-        d.setBounds(20, 20, 200, 100);
-        d.getChildren().add(b);
-        d.setVisible(true);
+        Frame f = Application.current().getFrame();
+        TextField tf = new TextField();
+        tf.setBounds(5, 5, 200, 25);
+        tf.getStyle().getBackground().setImage("class:///thinwire.tests.BackgroundImage/resources/BackgroundImage.png");
+        tf.getStyle().getBackground().setRepeat(Background.Repeat.Y);
+        tf.getStyle().getBackground().setPosition(Background.Position.LEFT_TOP);
+        tf.getStyle().getBorder().setSize(1);
+        tf.getStyle().getBorder().setType(Border.Type.SOLID);
+        tf.getStyle().getBorder().setColor(Color.valueOf("rgb(45, 66, 98)"));
+        f.getChildren().add(tf);
     }
-}
-
-class Listener implements ActionListener, PropertyChangeListener
-{
-  public void actionPerformed(ActionEvent ev)
-  {
-    System.out.println("ACTION");
-  }
-    
-  public void propertyChange(PropertyChangeEvent ev)  
-  {
-    System.out.println("PROPERTY");
-  }
 }

@@ -30,12 +30,12 @@ import thinwire.ui.event.PropertyChangeEvent;
 import thinwire.ui.event.PropertyChangeListener;
 import thinwire.ui.style.Color;
 
-public class DropDownImageChooser extends DropDown<ImageChooser> {
+public class DropDownImageChooserTest extends DropDown<ImageChooser> {
     
     public static void main(String[] args) {
         Dialog dlg = new Dialog("Simple Test");
         dlg.setBounds(10, 10, 600, 400);
-        DropDownImageChooser ddic = new DropDownImageChooser();
+        DropDownImageChooserTest ddic = new DropDownImageChooserTest();
         ddic.setBounds(10, 10, 300, 20);
         dlg.getChildren().add(ddic);
         dlg.setVisible(true);
@@ -44,7 +44,7 @@ public class DropDownImageChooser extends DropDown<ImageChooser> {
     
     private static class DefaultView extends DropDown.AbstractView<ImageChooser> {
 
-        void init(DropDownImageChooser ddic, ImageChooser ic) {
+        void init(DropDownImageChooserTest ddic, ImageChooser ic) {
             super.init(ddic, ic);
             List<Component> kids = ddc.getChildren();
             for (Component c : kids) {
@@ -61,7 +61,7 @@ public class DropDownImageChooser extends DropDown<ImageChooser> {
         }
         
         public DropDown getDropDown() {
-            return (DropDownImageChooser)dd;
+            return (DropDownImageChooserTest)dd;
         }
 
         public int getOptimalHeight() {
@@ -86,7 +86,7 @@ public class DropDownImageChooser extends DropDown<ImageChooser> {
         
     }
 
-    DropDownImageChooser() {
+    DropDownImageChooserTest() {
         super(new DefaultView(), new ImageChooser());
         ((DefaultView) getView()).init(this, getComponent());
     }

@@ -27,27 +27,27 @@ public class Main {
         }
         
         GridBox.Column col = new GridBox.Column();
-        col.add(BackgroundImage.class);
-        col.add(BorderImage.class);
-        col.add(DragAndDrop.class);
-        col.add(Localization.class);
+        col.add(BackgroundImageTest.class);
+        col.add(BorderImageTest.class);
+        col.add(DragAndDropTest.class);
+        col.add(LocalizationTest.class);
         col.add(ModalDialogTest.class);
         col.add(TableLayoutTest.class);
-        col.add(GridBoxRowSelection.class);
+        col.add(GridBoxRowSelectionTest.class);
         col.add(FileChooserTest.class);
         col.add(TextFieldTest.class);
         col.add(LabelTest.class);
         col.add(DropDownTest.class);
         col.add(TabFolderTest.class);
-        col.add(DualListenerBug.class);
-        col.add(DualSubclassingBug.class);
-        col.add(TabFolderTabTransition.class);
-        col.add(ClientSideCall.class);
+        col.add(DualListenerTest.class);
+        col.add(DualSubclassingTest.class);
+        col.add(TabFolderTabTransitionTest.class);
+        col.add(ClientSideCallTest.class);
         col.add(ContainerSetTest.class);
         col.add(GridBoxPositionShiftTest.class);
         col.add(DropDownEmptyCPUTest.class);
         col.add(DropDownLoadTest.class);
-        col.add(DropDownAutoComplete.class);
+        col.add(DropDownAutoCompleteTest.class);
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
         ddgb.setEditAllowed(false);
