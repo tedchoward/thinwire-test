@@ -20,7 +20,7 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 
 //Recreates a bug from RC1 regarding menu highlighting.
-//Tested against r462 and the bug still occured.
+//Tested against r462 and the bug still occurred.
 public class MenuHighlightBugTest {
 	public static void main(String[] args) {
 		Frame f = Application.current().getFrame();
