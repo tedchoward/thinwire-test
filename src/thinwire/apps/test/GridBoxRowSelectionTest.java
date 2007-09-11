@@ -30,7 +30,7 @@ public class GridBoxRowSelectionTest {
 
         final GridBox gb = new GridBox();
         gb.setVisibleHeader(true);
-        gb.getColumns().add(new GridBox.Column());
+        gb.getColumns().add(new GridBox.Column("Column Name", true));
         gb.addPropertyChangeListener(GridBox.Row.PROPERTY_ROW_SELECTED, new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent ev) {
                 System.out.println("PropertyChangeEvent(" + ev.getPropertyName() + "," + ((GridBox.Row)ev.getSource()).getIndex() + "," + ev.getOldValue() + "," + ev.getNewValue() + ")");

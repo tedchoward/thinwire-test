@@ -55,6 +55,8 @@ public class Main {
         col.add(DropDownEmptyCPUTest.class);
         col.add(DropDownLoadTest.class);
         col.add(DropDownAutoCompleteTest.class);
+        col.add(GridBoxDoubleRowTest.class);
+        col.add(LayoutResizeTest.class);
         col.add(ApocalypseTest.class);
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
