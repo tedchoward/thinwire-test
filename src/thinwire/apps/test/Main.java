@@ -43,11 +43,13 @@ public class Main {
         col.add(GridBoxRowSelectionTest.class);
         col.add(FileChooserTest.class);
         col.add(TextFieldTest.class);
+        col.add(TextUpdateTest.class);
         col.add(LabelTest.class);
         col.add(DropDownTest.class);
         col.add(TabFolderTest.class);
         col.add(DualListenerTest.class);
         col.add(DualSubclassingTest.class);
+        col.add(HyperLinkTest.class);
         col.add(TabFolderTabTransitionTest.class);
         col.add(ClientSideCallTest.class);
         col.add(ContainerSetTest.class);
@@ -58,6 +60,7 @@ public class Main {
         col.add(GridBoxDoubleRowTest.class);
         col.add(LayoutResizeTest.class);
         col.add(DialogModalLayerTest.class);
+        col.add(ShutdownLockupTest.class);
         col.add(ApocalypseTest.class);
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);

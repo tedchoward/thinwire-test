@@ -21,7 +21,7 @@ import thinwire.ui.*;
 import thinwire.ui.event.*;
 
 public class DialogModalLayerTest {
-	public static void main(String[] args) {
+	public static void main2(String[] args) {
 		final Dialog d2 = new Dialog("Second Dialog");
 		d2.setBounds(200, 200, 320, 200);
 
@@ -48,5 +48,25 @@ public class DialogModalLayerTest {
 		d1.getChildren().add(l.setBounds(10, 10, 400, 300));
 		d1.getChildren().add(b.setBounds(10, 350, 100, 30));
 		d1.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		createDialog(50, 1);
+	}
+	
+	//Written in response to: https://sourceforge.net/forum/message.php?msg_id=4634027
+	private static void createDialog(final int pos, final int number) {
+		Dialog d = new Dialog("Dialog " + number);
+		d.setBounds(pos, pos, 320, 200);
+		Button b = new Button("Next Dialog");
+		
+		b.addActionListener("click", new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				createDialog(pos + 50, number + 1);
+			}
+		});
+		
+		d.getChildren().add(b.setBounds(100, 100, 100, 25));
+		d.setVisible(true);
 	}
 }
