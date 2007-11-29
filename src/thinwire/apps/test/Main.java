@@ -61,6 +61,7 @@ public class Main {
         col.add(LayoutResizeTest.class);
         col.add(DialogModalLayerTest.class);
         col.add(ShutdownLockupTest.class);
+        col.add(TableLayoutSizeTest.class);
         col.add(ApocalypseTest.class);
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
