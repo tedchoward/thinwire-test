@@ -9,7 +9,7 @@
 		
 		<!-- Version Information -->
 		<property name="versionInfo.productVersion" value="1.0"/>
-		<property name="versionInfo.originalName" value="thinwire-tests"/>
+		<property name="versionInfo.originalName" value="thinwire-test"/>
 		<property name="versionInfo.originalFilename" value="${versionInfo.originalName}.jar"/>
 
 		<!-- Delete working folders -->
@@ -25,7 +25,7 @@
 		<!-- Copy source files to working folder -->
 		<copy todir="${path.source}" overwrite="true">
 			<fileset dir="../src" defaultexcludes="yes">
-				<include name="thinwire/apps/tests/**/*"/>
+				<include name="thinwire/apps/test/**/*"/>
 			</fileset>
 		</copy>
 				
@@ -47,7 +47,7 @@
 		
 		<copy todir="${path.temp}" overwrite="true">
 			<fileset dir="${path.source}" defaultexcludes="yes">
-				<include name="thinwire/apps/tests/**/resources/*.*"/>
+				<include name="thinwire/apps/test/**/resources/*.*"/>
 			</fileset>
 		</copy>		
 	</target>
@@ -58,7 +58,7 @@
 				<attribute name="Manifest-Version" value="2.0"/>
 				<attribute name="Built-By" value="${user.name}"/>
 
-				<section name="thinwire/apps/playground/">
+				<section name="thinwire/apps/test/">
 					<attribute name="Implementation-Title" value="ThinWire Tests"/>
 					<attribute name="Implementation-Version" value="${versionInfo.productVersion}"/>
 					<attribute name="Implementation-Vendor" value="${versionInfo.companyName}"/>
