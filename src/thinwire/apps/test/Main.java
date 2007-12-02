@@ -19,7 +19,7 @@ package thinwire.apps.test;
 
 import thinwire.ui.*;
 
-public class Main {
+public class Main extends thinwire.render.web.WebServlet {
 	static final String RES_PATH = "class:///" + Main.class.getName() + "/resources/";
     
     static String getSimpleClassName(Class type) {
