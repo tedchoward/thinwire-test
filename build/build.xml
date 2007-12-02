@@ -25,7 +25,7 @@
 		<!-- Copy source files to working folder -->
 		<copy todir="${path.source}" overwrite="true">
 			<fileset dir="../src" defaultexcludes="yes">
-				<include name="thinwire/tests/**/*"/>
+				<include name="thinwire/apps/tests/**/*"/>
 			</fileset>
 		</copy>
 				
