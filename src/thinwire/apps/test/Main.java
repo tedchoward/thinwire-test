@@ -39,6 +39,7 @@ public class Main extends thinwire.render.web.WebServlet {
         col.add(DragAndDropTest.class);
         col.add(LocalizationTest.class);
         col.add(ModalDialogTest.class);
+        col.add(ClientSideIncludeTest.class);
         col.add(TableLayoutTest.class);
         col.add(GridBoxRowSelectionTest.class);
         col.add(FileChooserTest.class);
@@ -62,6 +63,7 @@ public class Main extends thinwire.render.web.WebServlet {
         col.add(DialogModalLayerTest.class);
         col.add(ShutdownLockupTest.class);
         col.add(TableLayoutSizeTest.class);
+        col.add(MenuOnDialogIssue.class);
         col.add(SecurityRunInvalidEvents.class);
         col.add(ApocalypseTest.class);
 
