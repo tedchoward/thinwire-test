@@ -3,6 +3,8 @@ package thinwire.apps.test;
 import thinwire.ui.*;
 import thinwire.ui.layout.TableLayout;
 
+//Test to recreate: 1847785 - Scrollbars position doesn't update on frame resize
+//Result: Works for Me in IE6 under Windows XP & FF2 under OSX 10.5
 public class ScrollbarPositionUpdateTest {
 	public static void main(String[] args) {
 		TabSheet tab1 = new TabSheet("Tab 1");
