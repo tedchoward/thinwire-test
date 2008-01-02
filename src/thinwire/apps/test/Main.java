@@ -63,6 +63,7 @@ public class Main extends thinwire.render.web.WebServlet {
         col.add(DialogModalLayerTest.class);
         col.add(ShutdownLockupTest.class);
         col.add(TableLayoutSizeTest.class);
+        col.add(ScrollbarPositionUpdateTest.class);
         col.add(MenuOnDialogIssue.class);
         col.add(SecurityRunInvalidEvents.class);
         col.add(ApocalypseTest.class);
