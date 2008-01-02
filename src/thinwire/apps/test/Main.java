@@ -66,6 +66,7 @@ public class Main extends thinwire.render.web.WebServlet {
         col.add(ScrollbarPositionUpdateTest.class);
         col.add(MenuOnDialogIssue.class);
         col.add(SecurityRunInvalidEvents.class);
+        col.add(DropDownSortTest.class);
         col.add(ApocalypseTest.class);
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
