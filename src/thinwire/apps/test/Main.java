@@ -18,6 +18,8 @@
 package thinwire.apps.test;
 
 import thinwire.ui.*;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Main extends thinwire.render.web.WebServlet {
 	static final String RES_PATH = "class:///" + Main.class.getName() + "/resources/";
@@ -68,7 +70,14 @@ public class Main extends thinwire.render.web.WebServlet {
         col.add(SecurityRunInvalidEvents.class);
         col.add(DropDownSortTest.class);
         col.add(RadioButtonCheckedEventTest.class);
+        col.add(FocusLoopTest.class);
         col.add(ApocalypseTest.class);
+        
+        Collections.sort(col, new Comparator() {
+        	public int compare(Object c1, Object c2) {
+        		return ((Class)c1).getName().compareToIgnoreCase(((Class)c2).getName());
+        	}
+        });
 
         DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
         ddgb.setEditAllowed(false);
