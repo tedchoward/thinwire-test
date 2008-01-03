@@ -71,6 +71,7 @@ public class Main extends thinwire.render.web.WebServlet {
         col.add(DropDownSortTest.class);
         col.add(RadioButtonCheckedEventTest.class);
         col.add(FocusLoopTest.class);
+        col.add(ImageMaximizeTest.class);
         col.add(ApocalypseTest.class);
         
         Collections.sort(col, new Comparator() {
