@@ -21,7 +21,7 @@ import thinwire.ui.*;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Main extends thinwire.render.web.WebServlet {
+public class Main { //extends thinwire.render.web.WebServlet {
 	static final String RES_PATH = "class:///" + Main.class.getName() + "/resources/";
     
     static String getSimpleClassName(Class type) {
@@ -73,6 +73,7 @@ public class Main extends thinwire.render.web.WebServlet {
         col.add(FocusLoopTest.class);
         col.add(ImageMaximizeTest.class);
         col.add(ApocalypseTest.class);
+        col.add(TextAreaSelectionReplaceTest.class);
         
         Collections.sort(col, new Comparator() {
         	public int compare(Object c1, Object c2) {
