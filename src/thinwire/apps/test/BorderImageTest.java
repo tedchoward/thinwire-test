@@ -32,7 +32,7 @@ public class BorderImageTest {
         //p.getStyle().getFX().setPositionChange(FX.Type.SMOOTH);
         p.getStyle().getBackground().setColor(Color.LIGHTBLUE);
         p.getStyle().getBorder().setSize(28);
-        p.getStyle().getBorder().setImage("class:///thinwire.tests.BackgroundImage/resources/BorderImage1.png");
+        p.getStyle().getBorder().setImage("class:///" + BorderImageTest.class.getCanonicalName() + "/resources/BorderImage1.png");
         /*p.getStyle().getBackground().setColor(Color.TRANSPARENT);
         p.getStyle().getBorder().setSize(10);
         p.getStyle().getBorder().setImage("class:///thinwire.tests.BackgroundImage/resources/BorderImage2.png");*/

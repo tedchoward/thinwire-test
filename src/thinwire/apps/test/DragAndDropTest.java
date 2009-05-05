@@ -29,7 +29,7 @@ import thinwire.ui.style.*;
 public class DragAndDropTest {
 
     private static final Logger log = Logger.getLogger(DragAndDropTest.class.getName());
-    private static final String IMG_PATH = "class:///thinwire.tests.Main/resources/";
+    private static final String IMG_PATH = "class:///" + DragAndDropTest.class.getCanonicalName() + "/resources/";
     
     public static void main(String[] args) {
         final WebApplication app = (WebApplication) Application.current();
@@ -62,7 +62,7 @@ public class DragAndDropTest {
         
         kids.add(img);
         
-        final Image img2 = new Image("class:///thinwire.tests.Main/resources/mr-t.png");
+        final Image img2 = new Image("class:///" + DragAndDropTest.class.getCanonicalName() + "/resources/mr-t.png");
         img2.setPosition(200, 200);
         
         app.addRenderStateListener(img2, new RenderStateListener() {

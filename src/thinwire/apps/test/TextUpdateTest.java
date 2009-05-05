@@ -1,9 +1,6 @@
 package thinwire.apps.test;
 
-import java.io.File;
 
-import com.sun.org.apache.xml.internal.utils.URI;
-import com.sun.org.apache.xml.internal.utils.URI.MalformedURIException;
 
 import thinwire.ui.*;
 import thinwire.ui.event.*;

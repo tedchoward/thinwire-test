@@ -20,7 +20,6 @@ package thinwire.apps.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import thinwire.util.XOD;
 
 public class XODWriteTest {
     
@@ -40,6 +39,7 @@ public class XODWriteTest {
             this.opacity = opacity;
         }
         
+        @Override
         public boolean equals(Object obj) {
             if (!(obj instanceof Style)) return false;
             if (this == obj) return true;
@@ -69,6 +69,7 @@ public class XODWriteTest {
             this.size = size;
         }
         
+        @Override
         public boolean equals(Object obj) {
             if (!(obj instanceof Font)) return false;
             if (this == obj) return true;

@@ -18,12 +18,9 @@
 package thinwire.apps.test;
 
 import thinwire.ui.*;
-import thinwire.ui.event.PropertyChangeEvent;
-import thinwire.ui.event.PropertyChangeListener;
 import thinwire.ui.layout.*;
 import thinwire.ui.style.Color;
 
-import java.util.*;
 import java.util.logging.Logger;
 
 public class TableLayoutTest {

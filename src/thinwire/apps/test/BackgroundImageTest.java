@@ -25,7 +25,7 @@ public class BackgroundImageTest {
         Frame f = Application.current().getFrame();
         TextField tf = new TextField();
         tf.setBounds(5, 5, 200, 25);
-        tf.getStyle().getBackground().setImage("class:///thinwire.tests.BackgroundImage/resources/BackgroundImage.png");
+        tf.getStyle().getBackground().setImage("class:///" + BackgroundImageTest.class.getCanonicalName() + "/resources/BackgroundImage.png");
         tf.getStyle().getBackground().setRepeat(Background.Repeat.Y);
         tf.getStyle().getBackground().setPosition(Background.Position.LEFT_TOP);
         tf.getStyle().getBorder().setSize(1);
