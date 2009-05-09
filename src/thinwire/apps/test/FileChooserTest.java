@@ -17,6 +17,12 @@
 */
 package thinwire.apps.test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import thinwire.ui.*;
 import thinwire.ui.event.*;
 import thinwire.ui.layout.*;
@@ -24,7 +30,7 @@ import thinwire.ui.layout.*;
 public class FileChooserTest {
 
 	public static void main(String[] args) {
-		Dialog dlg = new Dialog("FileChooserTest");
+		Dialog dlg = new Dialog("FileChooserTest and Print Selected Text file");
 		dlg.setBounds(10, 10, 300, 200);
 		dlg.setLayout(new TableLayout(new double[][] {{0, 75}, {20, 0, 30}}, 5, 5));
 		final FileChooser fc = new FileChooser();
@@ -34,8 +40,22 @@ public class FileChooserTest {
 		ok.addActionListener(Button.ACTION_CLICK, new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				FileChooser.FileInfo fi = fc.getFileInfo();
-				MessageBox.confirm(fi.getName());
-			}
+                MessageBox.confirm(fi.getName());
+                InputStream inputStream = fi.getInputStream();
+                InputStreamReader isr = new InputStreamReader(inputStream);
+                BufferedReader br = new BufferedReader(isr);
+                String line;
+                try {
+                    line = br.readLine();
+
+                    while (line != null) {
+                        System.out.println(line);
+                        line = br.readLine();
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(FileChooserTest.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
 		});
 		
 		dlg.setVisible(true);

@@ -74,6 +74,7 @@ public class Main { //extends thinwire.render.web.WebServlet {
         col.add(ImageMaximizeTest.class);
         col.add(ApocalypseTest.class);
         col.add(TextAreaSelectionReplaceTest.class);
+        col.add(GridBoxAddRemoveRowTest.class);
         
         Collections.sort(col, new Comparator() {
         	public int compare(Object c1, Object c2) {
