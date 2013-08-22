@@ -20,7 +20,7 @@ public class DropDownSortTest {
 	
 	private static void setupGridBox(GridBox gb) {
 		gb.setVisibleHeader(true);
-		GridBox.Column col1 = new GridBox.Column("Name", true);
+		GridBox.Column col1 = new GridBox.Column("Name", true, new Object[]{});
 		for (int i = 20; --i >= 0;) col1.add("Name " + (char)(i + 65));
 		gb.getColumns().add(col1);
 		

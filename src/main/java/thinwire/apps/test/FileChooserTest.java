@@ -40,7 +40,8 @@ public class FileChooserTest {
 		ok.addActionListener(Button.ACTION_CLICK, new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				FileChooser.FileInfo fi = fc.getFileInfo();
-                MessageBox.confirm(fi.getName());
+//                MessageBox.confirm(fi.getName());
+				MessageBox.show(fi.getName());
                 InputStream inputStream = fi.getInputStream();
                 InputStreamReader isr = new InputStreamReader(inputStream);
                 BufferedReader br = new BufferedReader(isr);

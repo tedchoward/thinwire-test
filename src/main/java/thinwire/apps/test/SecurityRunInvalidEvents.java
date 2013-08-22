@@ -11,7 +11,7 @@ public class SecurityRunInvalidEvents {
 		disabledButton.setEnabled(false);
 		disabledButton.addActionListener("click", new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				MessageBox.confirm("Ran disabled button handler, disabledButton.isEnabled()=" + disabledButton.isEnabled());
+				MessageBox.show("Ran disabled button handler, disabledButton.isEnabled()=" + disabledButton.isEnabled());
 			}
 		});
 				
@@ -32,7 +32,7 @@ public class SecurityRunInvalidEvents {
 		
 		menu.addActionListener("click", new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				MessageBox.confirm("You clicked '" + ((Menu.Item)ev.getSource()).getText() + "', item.isEnabled()=" + ((Menu.Item)ev.getSource()).isEnabled());
+				MessageBox.show("You clicked '" + ((Menu.Item)ev.getSource()).getText() + "', item.isEnabled()=" + ((Menu.Item)ev.getSource()).isEnabled());
 			}
 		});
 		

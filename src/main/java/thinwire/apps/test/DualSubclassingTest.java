@@ -61,7 +61,7 @@ class DoubleInheritanceBugDemo {
     public DoubleInheritanceBugDemo() {
         Dialog dlg = new Dialog();
         dlg.setModal(true);
-        dlg.setWaitForWindow(true);
+//        dlg.setWaitForWindow(true);
         dlg.setBounds(100, 100, 200, 200);
         Button bt = new MyMyButton();
         bt.setBounds(10, 60, 100, 40);

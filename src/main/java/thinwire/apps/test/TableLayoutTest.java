@@ -17,53 +17,81 @@
 */
 package thinwire.apps.test;
 
-import thinwire.ui.*;
-import thinwire.ui.layout.*;
-import thinwire.ui.style.Color;
-
 import java.util.logging.Logger;
+
+import thinwire.ui.Application;
+import thinwire.ui.Button;
+import thinwire.ui.Component;
+import thinwire.ui.Container;
+import thinwire.ui.Dialog;
+import thinwire.ui.Frame;
+import thinwire.ui.MessageBox;
+import thinwire.ui.Panel;
+import thinwire.ui.TextComponent;
+import thinwire.ui.TextField;
+import thinwire.ui.event.ActionEvent;
+import thinwire.ui.event.ActionListener;
+import thinwire.ui.layout.TableLayout;
+import thinwire.ui.style.Color;
 
 public class TableLayoutTest {
     private static final Logger log = Logger.getLogger(TableLayoutTest.class.getName());
     
+    //TODO: rewrite with better UI
     public static void main(String[] args) {
         Frame f = Application.current().getFrame();
         f.setTitle(TableLayoutTest.class.getName());
         
-        int containerType = MessageBox.confirm(null, null, "Create TableLayout example in Frame, Dialog or Panel?", "Frame|Dialog|Panel");
-        Container<Component> container;
+        MessageBox.confirm(null, null, "Create TableLayout example in Frame, Dialog or Panel?", "Frame|Dialog|Panel", new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ev) {
+				int containerType = (Integer) ev.getSource();
+				
+				final Container<Component> container;
+		        
+		        if (containerType == 1) {
+		            Dialog diag = new Dialog("Simple Test");
+		            diag.setBounds(100, 100, 300, 300);
+		            diag.setResizeAllowed(true);
+		            //diag.setWaitForWindow(true);
+		            container = diag;
+		        } else if (containerType == 0) {
+		            container = Application.current().getFrame();
+		        } else {
+		            container = new Panel();
+		        }
+		        
+		        MessageBox.confirm(null, null, "Which TableLayout test would you like to run?", "Simple|Complex|Grid", new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent ev) {
+						
+						switch ((Integer) ev.getSource()) {
+			            	case 1: complex(container); break;
+			            	case 2: grid(container); break;
+			            	default: simple(container); break;
+						}
+			        
+				        if (container instanceof Dialog) {
+				            container.getStyle().getBackground().setColor(Color.WINDOW);
+				            ((Dialog)container).setVisible(true);
+				        } else if (container instanceof Panel) {
+				            Application.current().getFrame().getChildren().add(container.setBounds(5, 5, 400, 300));
+				        }
+				        
+				        for (Component comp : container.getChildren()) {
+				            String s = "class=" + comp.getClass();
+				            if (comp instanceof TextComponent) s += ",text=" + ((TextComponent)comp).getText();
+				            s += ",limit=" + comp.getLimit();
+				            System.out.println(s);
+				        }
+					}
+		        });
+		        
+		        
+			}
+        });
         
-        if (containerType == 1) {
-            Dialog diag = new Dialog("Simple Test");
-            diag.setBounds(100, 100, 300, 300);
-            diag.setResizeAllowed(true);
-            diag.setWaitForWindow(true);
-            container = diag;
-        } else if (containerType == 0) {
-            container = Application.current().getFrame();
-        } else {
-            container = new Panel();
-        }
         
-        switch (MessageBox.confirm(null, null, "Which TableLayout test would you like to run?", "Simple|Complex|Grid")) {
-            case 1: complex(container); break;
-            case 2: grid(container); break;
-            default: simple(container); break;
-        }
-        
-        if (container instanceof Dialog) {
-            container.getStyle().getBackground().setColor(Color.WINDOW);
-            ((Dialog)container).setVisible(true);
-        } else if (container instanceof Panel) {
-            Application.current().getFrame().getChildren().add(container.setBounds(5, 5, 400, 300));
-        }
-        
-        for (Component comp : container.getChildren()) {
-            String s = "class=" + comp.getClass();
-            if (comp instanceof TextComponent) s += ",text=" + ((TextComponent)comp).getText();
-            s += ",limit=" + comp.getLimit();
-            System.out.println(s);
-        }
     }
     
     static void simple(Container<Component> container) {

@@ -1,8 +1,15 @@
 package thinwire.apps.test;
 
-import thinwire.ui.*;
-import thinwire.ui.layout.*;
-import thinwire.ui.event.*;
+import thinwire.ui.Application;
+import thinwire.ui.Button;
+import thinwire.ui.Frame;
+import thinwire.ui.Label;
+import thinwire.ui.MessageBox;
+import thinwire.ui.TextArea;
+import thinwire.ui.TextField;
+import thinwire.ui.event.ActionEvent;
+import thinwire.ui.event.ActionListener;
+import thinwire.ui.layout.TableLayout;
 
 //Tests the selectionBeginIndex and selectionEndIndex properties of TextArea
 //Just enter in a multi-line block of text, fill out the fields as follows, select some text and click 'Do It':
@@ -31,17 +38,22 @@ public class TextAreaSelectionReplaceTest {
 		
 		doIt.addActionListener("click", new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				String value = text.getText();
-				int begin = text.getSelectionBeginIndex();
-				int end = text.getSelectionEndIndex();
-				value = value.substring(begin, end);
-				MessageBox.confirm("Selected value is: " + value);
-				
-				if (replace.getText().length() > 0) value = replace.getText();
-				if (before.getText().length() > 0) value = before.getText() + value;
-				if (after.getText().length() > 0) value += after.getText();
-				
-				text.setText(text.getText().substring(0, begin) + value + text.getText().substring(end));
+				String val = text.getText();
+				final int begin = text.getSelectionBeginIndex();
+				final int end = text.getSelectionEndIndex();
+				final String value = val.substring(begin, end);
+				MessageBox.confirm("Selected value is: " + value, new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent ev) {
+						String val = value;
+						
+						if (replace.getText().length() > 0) val = replace.getText();
+						if (before.getText().length() > 0) val = before.getText() + val;
+						if (after.getText().length() > 0) val += after.getText();
+						
+						text.setText(text.getText().substring(0, begin) + val + text.getText().substring(end));
+					}
+				});
 			}
 		});
 	}

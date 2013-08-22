@@ -14,7 +14,7 @@ public class ScrollbarPositionUpdateTest {
 		TabSheet tab2 = new TabSheet("Tab 2");
 		tab2.setLayout(new TableLayout(new double[][]{{0},{0}}, 10));
 		GridBox gb = new GridBox();
-		GridBox.Column gbc = new GridBox.Column("Column 1", true, 600);
+		GridBox.Column gbc = new GridBox.Column("Column 1", true, 600, new Object[]{});
 		for (int i = 4; --i >= 0;) gbc.add("value " + i);
 		gb.getColumns().add(gbc);
 		tab2.getChildren().add(gb);

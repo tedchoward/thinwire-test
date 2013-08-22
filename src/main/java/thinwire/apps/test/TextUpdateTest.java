@@ -16,14 +16,14 @@ public class TextUpdateTest {
 		
 		tf.addKeyPressListener("Enter", new KeyPressListener() {
 			public void keyPress(KeyPressEvent ev) {
-				MessageBox.confirm("Enter Key Text field value is:" + tf.getText());
+				MessageBox.show("Enter Key Text field value is:" + tf.getText());
 			}
 		});
 		
 		tf.addPropertyChangeListener("focus", new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent ev) {
 				if (ev.getNewValue() == Boolean.TRUE) return;
-				MessageBox.confirm("Lose Focus Text field value is:" + tf.getText());
+				MessageBox.show("Lose Focus Text field value is:" + tf.getText());
 			}
 		});
 		

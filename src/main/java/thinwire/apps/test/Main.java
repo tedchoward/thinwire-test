@@ -17,14 +17,21 @@
 */
 package thinwire.apps.test;
 
-import thinwire.ui.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.Comparator;
+
+import thinwire.ui.Application;
+import thinwire.ui.DropDownGridBox;
+import thinwire.ui.GridBox;
+import thinwire.ui.MessageBox;
+import thinwire.ui.event.ActionEvent;
+import thinwire.ui.event.ActionListener;
 
 public class Main { //extends thinwire.render.web.WebServlet {
 	static final String RES_PATH = "class:///" + Main.class.getName() + "/resources/";
     
-    static String getSimpleClassName(Class type) {
+    static String getSimpleClassName(Class<?> type) {
         String text = type.getName();
         text = text.substring(text.lastIndexOf('.') + 1);
         return text;
@@ -76,31 +83,53 @@ public class Main { //extends thinwire.render.web.WebServlet {
         col.add(TextAreaSelectionReplaceTest.class);
         col.add(GridBoxAddRemoveRowTest.class);
         
-        Collections.sort(col, new Comparator() {
+        Collections.sort(col, new Comparator<Object>() {
         	public int compare(Object c1, Object c2) {
-        		return ((Class)c1).getName().compareToIgnoreCase(((Class)c2).getName());
+        		return ((Class<?>)c1).getName().compareToIgnoreCase(((Class<?>)c2).getName());
         	}
         });
 
-        DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
+        final DropDownGridBox ddgb = (DropDownGridBox)new DropDownGridBox().setSize(300, 25);
         ddgb.setEditAllowed(false);
         ddgb.getComponent().getColumns().add(col);
-        GridBox.Row row = null;
         
-        if (MessageBox.confirm(null, Application.getPlatformVersionInfo().get("productVersion") + ": Select A Test To Run", ddgb, null) == 0) {
-            if (ddgb.getText().length() > 0) {
-                row = ddgb.getComponent().getSelectedRow();
+        
+        MessageBox.confirm(null, Application.getPlatformVersionInfo().get("productVersion") + ": Select A Test to Run", ddgb, null, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ev) {
+				GridBox.Row row = null;
+				
+				if (((Integer) ev.getSource()) == 0) {
+					if (ddgb.getText().length() > 0) {
+		                row = ddgb.getComponent().getSelectedRow();
 
-                if (row != null) {
-	                Class clazz = (Class)row.get(0);
-	                clazz.getMethod("main", new Class[] { String[].class }).invoke(clazz, new Object[] { new String[] {} });
-                }
-            }
-        }
+		                if (row != null) {
+			                Class<?> clazz = (Class<?>)row.get(0);
+			                try {
+								clazz.getMethod("main", new Class[] { String[].class }).invoke(clazz, new Object[] { new String[] {} });
+							} catch (IllegalAccessException
+									| IllegalArgumentException
+									| InvocationTargetException
+									| NoSuchMethodException | SecurityException e) {
+								if (e instanceof RuntimeException) throw (RuntimeException)e;
+								throw new RuntimeException(e);
+							}
+		                }
+		            }
+				}
+				
+				if (row == null) {
+		            MessageBox.confirm("You did not select a test!", new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent ev) {
+							Application.current().getFrame().setVisible(false);
+						}
+		            });
+		        }
+			}
+        });
         
-        if (row == null) {
-            MessageBox.confirm("You did not select a test!");
-            Application.current().getFrame().setVisible(false);
-        }        
+                
+                
     }
 }
